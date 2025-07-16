@@ -1,0 +1,91 @@
+/* Estilos generales para la página ayuda */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+.main-content {
+    margin-left: 220px; /* espacio para sidebar */
+    padding: 40px 20px;
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #1a1a72;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+h3 {
+    color: #5a5aff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #8000ff;
+    padding-bottom: 6px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #8000ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lista de preguntas frecuentes */
+.faq-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.faq-list li {
+    background: #8000ff;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 8px rgba(128, 0, 255, 0.3);
+    transition: background-color 0.3s ease;
+    cursor: default;
+}
+
+.faq-list li:hover {
+    background: #5a00b8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .main-content {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+    .container {
+        padding: 20px 15px;
+    }
+}
+
