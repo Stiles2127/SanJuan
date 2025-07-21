@@ -1,0 +1,117 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 16 may. 2025, 21:16:23
+    Author     : PC
+*/
+/* login_style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #3C1CCA;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(60, 28, 202, 0.3);
+    width: 350px;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], 
+input[type="password"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+input[type="submit"], 
+button {
+    background-color: white;
+    color: #3C1CCA;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover, 
+button:hover {
+    background-color: #2a0e8c;
+    color: white;
+}
+
+.links {
+    text-align: center;
+    margin-top: 25px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #c7c7ff;
+    text-decoration: underline;
+}
+
+.error, .success {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.error {
+    background-color: #ff6b6b30;
+    border: 1px solid #ff6b6b;
+}
+
+.success {
+    background-color: #7fff7f30;
+    border: 1px solid #7fff7f;
+}
+

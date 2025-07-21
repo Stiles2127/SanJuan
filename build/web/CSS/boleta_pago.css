@@ -1,0 +1,102 @@
+body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('../IMAGE/2.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .boleta-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: rgba(26, 26, 114, 0.85); /* fondo semitransparente azul oscuro */
+            border-radius: 12px;
+            padding: 30px 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            color: white;
+            text-align: left;
+        }
+
+        .boleta-container h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #8000ff;
+            color: white;
+            text-align: left;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #1a1a72;
+            border-radius: 6px;
+        }
+
+        .total-row td {
+            font-weight: bold;
+            font-size: 20px;
+            background-color: #5a5aff;
+            color: white;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: white;
+            color: #1a1a72;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #fff;
+        }
+
+        /* Estilos para impresión */
+        @media print {
+            body {
+                background: none !important;
+                color: black !important;
+            }
+            .boleta-container {
+                background-color: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+            button {
+                display: none;
+            }
+            table th, table td {
+                background-color: white !important;
+                color: black !important;
+                border: 1px solid black !important;
+            }
+        }

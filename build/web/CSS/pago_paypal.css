@@ -1,0 +1,113 @@
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('../IMAGE/2.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: rgba(26, 26, 114, 0.85);
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.7);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #000;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+            text-shadow: 1px 1px 3px #000;
+            text-align: left;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 14px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="email"]:focus {
+            outline: 2px solid #8000ff;
+            background-color: #f0f0f0;
+            color: #1a1a72;
+        }
+
+        .total-label {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: white;
+            color: #1a1a72;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #fff;
+        }
+
+        /* Estilos para impresión */
+        @media print {
+            body {
+                background: none !important;
+                color: black !important;
+                height: auto;
+            }
+            .form-container {
+                background-color: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                padding: 0;
+                width: 100%;
+                max-width: none;
+                text-align: left;
+            }
+            button {
+                display: none;
+            }
+            input[type="email"] {
+                border: 1px solid black !important;
+                background-color: white !important;
+                color: black !important;
+            }
+            label, .total-label {
+                color: black !important;
+                text-shadow: none !important;
+            }
+        }
+

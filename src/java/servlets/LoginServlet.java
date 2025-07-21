@@ -1,6 +1,6 @@
 package servlets;
 
-import conexion.conexion;
+import conexion.Conexion;
 import java.io.IOException;
 import java.sql.*;
 import jakarta.servlet.ServletException;
@@ -15,7 +15,7 @@ public class LoginServlet extends HttpServlet {
         String usuario = request.getParameter("usuario");
         String contrasena = request.getParameter("contrasena");
 
-        try (Connection conn = conexion.getConnection()) {
+        try (Connection conn = Conexion.getConnection()) {
             String sql = "SELECT Nombre, Usuario FROM usuarios WHERE Usuario = ? AND Contraseña = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, usuario);
