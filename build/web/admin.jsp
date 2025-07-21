@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,65 +29,23 @@
     <div class="main-content">
         <h1 class="title">THE PARKING SAN JUAN</h1>
         <h2 class="subtitulo">Opciones de Gestión</h2>
-
-        <!-- Opciones de Gestión como zonas -->
-        <div class="zonas">
-        <div class="zona" onclick="abrirModal('modalTarifa')">Tarifas por Vehículo</div>
-        <div class="zona" onclick="abrirModal('modalEspacio')">Gestión de Espacios</div>
+        <!-- Botones de Zonas -->
+        <div class="zonas" id="zonas">
+            <button type="button" class="zona" onclick="mostrarDatosSede(1)">La Victoria</button>
+            <button type="button" class="zona" onclick="mostrarDatosSede(2)">Los Olivos</button>
+            <button type="button" class="zona" onclick="mostrarDatosSede(3)">Surco</button>
+            <button type="button" class="zona" onclick="mostrarDatosSede(4)">Chaclacayo</button>
         </div>
-
-        <!-- Barra de búsqueda -->
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar estacionamiento">
+        <!-- Aquí se muestra el resultado -->
+        <div class="resultados" id="resultadosZona">
+            <div class='msg-info'>Seleccione una sede para ver sus tarifas y espacios disponibles.</div>
         </div>
-
-        <!-- Zonas disponibles -->
-        <div class="zonas">
-            <div class="zona">La Victoria</div>
-            <div class="zona">Los Olivos</div>
-            <div class="zona">Surco</div>
-            <div class="zona">Chaclacayo</div>
-        </div>
-
-        <!-- Botones de autenticación -->
         <div class="auth-buttons">
             <button class="registro">REGISTRO</button>
             <button class="login">LOGIN</button>
         </div>
-    </div>    
-    <!-- Modal: Tarifas por Vehículo -->
-        <div class="modal" id="modalTarifa">
-            <div class="modal-content">
-                <button class="close-modal" onclick="cerrarModal()">&times;</button>
-                <h3>Tarifas por Vehículo - Seleccione Sede</h3>
-                <select id="tarifa-sede">
-                    <option value="">-- Elija una sede --</option>
-                    <option value="1">La Victoria</option>
-                    <option value="2">Los Olivos</option>
-                    <option value="3">Surco</option>
-                    <option value="4">Chaclacayo</option>
-                </select>
-                <button class="login" onclick="consultarTarifas()">Consultar</button>
-                <div id="resultado-tarifa"></div>
-            </div>
-        </div>
-
-        <!-- Modal: Gestión de Espacios -->
-        <div class="modal" id="modalEspacio">
-            <div class="modal-content">
-                <button class="close-modal" onclick="cerrarModal()">&times;</button>
-                <h3>Gestión de Espacios - Seleccione Sede</h3>
-                <select id="espacio-sede">
-                    <option value="">-- Elija una sede --</option>
-                    <option value="1">La Victoria</option>
-                    <option value="2">Los Olivos</option>
-                    <option value="3">Surco</option>
-                    <option value="4">Chaclacayo</option>
-                </select>
-                <button class="registro" onclick="consultarEspacios()">Gestionar</button>
-                <div id="resultado-espacios"></div>
-            </div>
-        </div>
-   <script src="${pageContext.request.contextPath}/JS/funciones_admi.js"></script>
+    </div>
+    <script src="${pageContext.request.contextPath}/JS/funciones_admi.js"></script>
 </body>
 </html>
+

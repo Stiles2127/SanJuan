@@ -24,6 +24,10 @@
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>servlets.ClienteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminClienteServlet</servlet-name>
+        <servlet-class>servlets.AdminClienteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistroServlet</servlet-name>
         <url-pattern>/RegistroServlet</url-pattern>
@@ -47,5 +51,9 @@
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminClienteServlet</servlet-name>
+        <url-pattern>/AdminClienteServlet</url-pattern>
     </servlet-mapping>
 </web-app>

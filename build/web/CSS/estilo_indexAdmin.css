@@ -1,5 +1,4 @@
-
- body {
+body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: url('../IMAGE/2.png') no-repeat center center fixed;
@@ -114,7 +113,7 @@
     padding-left: 20px;
 }
 
-/* Zonas (incluye Tarifas y Gestión como zona) */
+/* Zonas (incluye botones de sede) */
 .zonas {
     display: grid;
     grid-template-columns: repeat(2, 200px);
@@ -132,6 +131,8 @@
     font-size: 18px;
     transition: transform 0.3s, background 0.3s;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .zona:hover {
@@ -193,56 +194,199 @@
 .main-content tr:hover {
     background-color: #e7e7ff;
 }
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9000;
-    left: 0; top: 0; width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-}
-.modal-content {
-    background: #fff;
+
+/* ========================== */
+/* NUEVO: Resultados dinámicos*/
+/* ========================== */
+.resultados {
+    margin-top: 36px;
+    background: rgba(255,255,255,0.92);
     color: #1a1a72;
-    padding: 30px 40px;
-    border-radius: 16px;
-    min-width: 320px;
-    min-height: 180px;
-    max-width: 90vw;
-    max-height: 80vh;
-    position: relative;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    animation: modalshow 0.3s;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 0 14px rgba(90,90,200,0.08);
 }
-@keyframes modalshow {
-    from {transform: scale(0.8); opacity:0;}
-    to {transform: scale(1); opacity:1;}
+.tabla-tarifas {
+    width: 60%;
+    margin-bottom: 16px;
+    border-collapse: collapse;
 }
-.close-modal {
-    position: absolute;
-    top: 15px; right: 20px;
-    border: none; background: none;
-    font-size: 22px; color: #1a1a72;
-    cursor: pointer;
+.tabla-tarifas th, .tabla-tarifas td {
+    padding: 8px 15px;
+    border-bottom: 1px solid #aaa;
+    text-align: left;
+}
+.tabla-tarifas th {
+    background-color: #ededff;
+}
+.list-espacios {
+    margin-top: 12px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tag-espacio {
+    background: #5a5aff;
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+.msg-vacio, .msg-info {
+    padding: 9px 0 5px 0;
+    color: #5656A0;
+    font-style: italic;
+}
+.msg-error {
+    color: #e23;
     font-weight: bold;
 }
-body.modal-open {overflow: hidden;}
-.modal select, .modal button {
-    margin: 8px 0;
-    padding: 6px 12px;
-    border-radius: 7px;
+.cuadro-tipozona {
+    display: flex;
+    gap: 36px;
+    margin: 30px 0 12px 0;
+    flex-wrap: wrap;
+}
+.zona-categoria {
+    flex: 1 1 250px;
+    background: #f8f7ff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(90,90,200,0.04);
+    padding: 10px 12px 18px 12px;
+    min-width: 220px;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+.etiqueta-zona {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    color: #fff;
+    display: inline-block;
+}
+.tipo-m {
+    background: #4067f5;
+}
+.tipo-a {
+    background: #2aca67;
+}
+.espacios-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 34px;
+}
+.espacio-celda {
+    background: #e9eaff;
+    color: #222c5a;
+    border-radius: 5px;
+    padding: 8px 13px;
+    font-weight: bold;
     font-size: 16px;
+    border: 1.5px solid #5a5aff;
+    transition: background 0.15s, color 0.15s;
 }
-#resultado-tarifa, #resultado-espacios {
-    margin-top: 18px;
-    background: #f6f6ff;
-    border-radius: 9px;
-    padding: 14px;
+.espacio-celda.disponible {
+    background: #cde6ff;
+    color: #183560;
+    border: 2px solid #2cb8f4;
 }
-#resultado-tarifa table, #resultado-tarifa th, #resultado-tarifa td {
-    border: 1px solid #aaa;
-    border-collapse: collapse;
-    padding: 5px 15px;
+.zona-categoria .msg-vacio {
+    margin-top: 5px;
+    color: #6a6aaf;
+    font-style: italic;
 }
+/*ESTILO PARA AJUSTES */
 
+#tabla-tarifas table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 18px 0 26px 0;
+    background: #fff;
+    color: #1a1a72;
+    border-radius: 10px;
+}
+#tabla-tarifas th, #tabla-tarifas td {
+    padding: 8px 16px;
+    border-bottom: 1px solid #aaa;
+    text-align: left;
+}
+#tabla-tarifas th {
+    background: #ededff;
+}
+#tabla-tarifas input[type=text], 
+#tabla-tarifas input[type=number] {
+    border: none;
+    background: transparent;
+    color: #1a1a72;
+    font-size: 15px;
+    padding: 6px 8px;
+    width: 90%;
+}
+#mensajes-ajustes {
+    margin: 16px 0 0 0;
+    padding: 8px;
+    color: #254;
+    font-weight: bold;
+}
+#mensajes-ajustes .error { color: #e23; }
+.resultados {
+    margin-top: 36px;
+    background: rgba(255,255,255,0.92);
+    color: #1a1a72;
+    border-radius: 12px;
+    padding: 24px 36px;
+    box-shadow: 0 0 14px rgba(90,90,200,0.08);
+}
+.resultados h3, .resultados h4 {
+    margin-top: 22px;
+    color: #1a1a72;
+}
+.resultados p {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+.resultados table {
+    margin-top: 12px;
+    width: 99%;
+    border-collapse: collapse;
+    background: #fff;
+    color: #1a1a72;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px #bfbfff22;
+}
+.resultados th, .resultados td {
+    padding: 8px 13px;
+    border-bottom: 1px solid #bbb;
+    text-align: left;
+    font-size: 15px;
+}
+.resultados th {
+    background: #ededff;
+    font-weight: bold;
+}
+.resultados tr:hover {
+    background: #e7e7ff;
+}
+.msg-info {
+    color: #6a6aaf;
+    font-style: italic;
+}
+.msg-vacio {
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+}
+.msg-error {
+    color: #e23;
+    font-weight: bold;
+    margin-top: 16px;
+}

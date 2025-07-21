@@ -1,64 +1,43 @@
-<%@page import="conexion.Conexion"%>
 <%@page import="java.sql.*"%>
+<%@page import="conexion.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Clientes - Gestión CRUD</title>
+    <title>Historial de Reservas y Pagos</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/estilo_indexAdmin.css">
 </head>
-<body>
+<body data-context="${pageContext.request.contextPath}">
 <%@ include file="sidebar.jsp" %>
 <div class="main-content">
-    <h1 class="title">Gestión de Clientes</h1>
-    <form method="post" action="ClienteServlet">
-        <input type="hidden" name="accion" value="agregar"/>
-        <input type="text" name="Usuario" placeholder="Usuario" required>
-        <input type="text" name="Nombre" placeholder="Nombre" required>
-        <input type="text" name="Apellido" placeholder="Apellido" required>
-        <input type="text" name="DNI" placeholder="DNI" required>
-        <input type="email" name="Correo" placeholder="Correo" required>
-        <input type="password" name="Contraseña" placeholder="Contraseña" required>
-        <button type="submit" class="registro">Agregar Cliente</button>
-    </form>
-    <table>
-        <tr>
-            <th>UsuarioID</th>
-            <th>Usuario</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>DNI</th>
-            <th>Correo</th>
-            <th>Acciones</th>
-        </tr>
-        <%
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/alquilercocheras", "root", "root");
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM usuarios");
-            while(rs.next()){
-        %>
-        <tr>
-            <td><%=rs.getInt("UsuarioID")%></td>
-            <td><%=rs.getString("Usuario")%></td>
-            <td><%=rs.getString("Nombre")%></td>
-            <td><%=rs.getString("Apellido")%></td>
-            <td><%=rs.getString("DNI")%></td>
-            <td><%=rs.getString("Correo")%></td>
-            <td>
-                <form method="post" action="ClienteServlet" style="display:inline">
-                    <input type="hidden" name="accion" value="borrar"/>
-                    <input type="hidden" name="UsuarioID" value="<%=rs.getInt("UsuarioID")%>"/>
-                    <button type="submit" class="login">Eliminar</button>
-                </form>
-                <!-- Puedes agregar botón editar aquí -->
-            </td>
-        </tr>
-        <% } rs.close(); st.close(); con.close(); %>
-    </table>
+    <h1 class="title">Historial de Cliente</h1>
+    <div class="search-bar">
+        <form id="formBusquedaHistorial" onsubmit="buscarHistorial(event)">
+            <input type="text" name="busqueda" id="busqueda" placeholder="Buscar por usuario, DNI, correo o nombre..." list="sugerenciasClientes" autocomplete="off">
+            <datalist id="sugerenciasClientes">
+                <%
+                Connection conS = Conexion.getConnection();
+                Statement stS = conS.createStatement();
+                ResultSet rsS = stS.executeQuery("SELECT Usuario, Nombre, Apellido, DNI, Correo FROM usuarios");
+                while(rsS.next()) {
+                    String sug = rsS.getString("Usuario") + " - " + rsS.getString("Nombre") + " " + rsS.getString("Apellido")
+                        + " (" + rsS.getString("DNI") + ", " + rsS.getString("Correo") + ")";
+                %>
+                    <option value="<%=sug%>"></option>
+                <% }
+                rsS.close(); stS.close(); conS.close();
+                %>
+            </datalist>
+            <button type="submit" class="login">Buscar</button>
+        </form>
+    </div>
+    <div id="resultados-historial" class="resultados">
+        <div class="msg-info">Busca y selecciona un cliente para ver su historial.</div>
+    </div>
 </div>
+<script src="${pageContext.request.contextPath}/JS/historial.js"></script>
 </body>
 </html>
+
 
